@@ -10,7 +10,6 @@ const CategoriesScreen = ({ navigation }) => {
         title={itemData.item.title}
         color={itemData.item.color}
         onSelect={() => {
-          console.log("hello");
           navigation.navigate({
             routeName: "CategoryMeals",
             params: {

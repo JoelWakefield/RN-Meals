@@ -11,7 +11,19 @@ const CategoryMealsScreen = ({ navigation }) => {
   );
 
   const renderMealItem = (itemData) => {
-    return <MealItemTile item={itemData.item} />;
+    return (
+      <MealItemTile
+        item={itemData.item}
+        onSelect={() => {
+          navigation.navigate({
+            routeName: "MealDetail",
+            params: {
+              id: itemData.item.id,
+            },
+          });
+        }}
+      />
+    );
   };
 
   return (
