@@ -19,10 +19,14 @@ const CategoryGridTile = ({ title, color, onSelect }) => {
   return (
     <View style={styles.container}>
       <TouchComponent style={{ flex: 1 }} onPress={onSelect}>
-        <View style={{ ...styles.view, ...{ backgroundColor: color } }}>
-          <Text style={styles.title} numberOfLines={2}>
-            {title}
-          </Text>
+        <View style={{ flex: 1 }}>
+          <TileWrapper
+            style={{ ...styles.view, ...{ backgroundColor: color } }}
+          >
+            <Text style={styles.title} numberOfLines={2}>
+              {title}
+            </Text>
+          </TileWrapper>
         </View>
       </TouchComponent>
     </View>
