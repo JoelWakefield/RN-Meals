@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
   tileContainer: {
     flex: 1,
     height: 280,
-    width: 340,
     borderRadius: 20,
     overflow: "hidden",
   },

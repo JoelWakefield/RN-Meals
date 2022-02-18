@@ -28,7 +28,11 @@ const CategoryMealsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
-      <FlatList data={meals} renderItem={renderMealItem} />
+      <FlatList
+        data={meals}
+        renderItem={renderMealItem}
+        style={{ width: "100%" }}
+      />
     </View>
   );
 };
