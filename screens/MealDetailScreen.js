@@ -16,12 +16,12 @@ const MealDetailScreen = ({ navigation }) => {
     <View style={styles.screen}>
       <View style={styles.ingredientsContainer}>
         {meal.ingredients.map((i) => (
-          <Text>{i}</Text>
+          <Text key={i}>{i}</Text>
         ))}
       </View>
       <View style={styles.stepsContainer}>
         {meal.steps.map((i) => (
-          <Text>{i}</Text>
+          <Text key={i}>{i}</Text>
         ))}
       </View>
     </View>
