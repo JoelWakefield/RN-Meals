@@ -1,12 +1,57 @@
-import { View, Text, StyleSheet } from "react-native";
+import { useState, useEffect, useCallback } from "react";
+import { View, StyleSheet } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
-import HeaderButton from "../components/HeaderButton";
+import Colors from "../constants/Colors";
 
-const FilterScreen = () => {
+import HeaderButton from "../components/HeaderButton";
+import FilterSwitch from "../components/FilterSwitch";
+
+const FilterScreen = ({ navigation }) => {
+  const [glutenFree, setGlutenFree] = useState(false);
+  const [lactoseFree, setLactoseFree] = useState(false);
+  const [vegan, setVegan] = useState(false);
+  const [vegitarian, setVegitarian] = useState(false);
+
+  const saveFilters = useCallback(() => {
+    const appliedFilters = {
+      isGlutenFree: glutenFree,
+      isLactoseFree: lactoseFree,
+      isVegan: vegan,
+      isVegitarian: vegitarian,
+    };
+
+    console.log(appliedFilters);
+  }, [glutenFree, lactoseFree, vegan, vegitarian]);
+
+  useEffect(() => {
+    navigation.setParams({
+      save: saveFilters,
+    });
+  }, [saveFilters]);
+
   return (
     <View style={styles.screen}>
-      <Text>FilterScreen</Text>
+      <FilterSwitch
+        label="Gluten-Free"
+        state={glutenFree}
+        onChange={(state) => setGlutenFree(state)}
+      />
+      <FilterSwitch
+        label="Lactose-Free"
+        state={lactoseFree}
+        onChange={(state) => setLactoseFree(state)}
+      />
+      <FilterSwitch
+        label="Vegan"
+        state={vegan}
+        onChange={(state) => setVegan(state)}
+      />
+      <FilterSwitch
+        label="Vegitarian"
+        state={vegitarian}
+        onChange={(state) => setVegitarian(state)}
+      />
     </View>
   );
 };
@@ -22,6 +67,15 @@ FilterScreen.navigationOptions = (navData) => {
           onPress={() => {
             navData.navigation.toggleDrawer();
           }}
+        />
+      </HeaderButtons>
+    ),
+    headerRight: (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Save"
+          iconName="ios-save"
+          onPress={navData.navigation.getParam("save")}
         />
       </HeaderButtons>
     ),

@@ -26,7 +26,10 @@ export const MEALS = [
       "The sauce will be done once the spaghetti are.",
       "Feel free to add some cheese on top of the finished dish.",
     ],
-    ["vegan", "vegitarian", "lactose-free"]
+    false,
+    true,
+    true,
+    true
   ),
 
   new Meal(
@@ -49,7 +52,10 @@ export const MEALS = [
       "Layer ham, the pineapple and cheese on the white bread",
       "Bake the toast for round about 10 minutes in the oven at 200°C",
     ],
-    []
+    false,
+    false,
+    false,
+    false
   ),
 
   new Meal(
@@ -75,7 +81,10 @@ export const MEALS = [
       "Bruch buns with ketchup",
       "Serve burger with tomato, cucumber and onion",
     ],
-    ["lactose-free"]
+    false,
+    true,
+    false,
+    false
   ),
 
   new Meal(
@@ -105,7 +114,10 @@ export const MEALS = [
       "Remove, and drain on kitchen paper. Fry the parsley in the remaining oil and drain.",
       "Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.",
     ],
-    []
+    false,
+    false,
+    false,
+    false
   ),
 
   new Meal(
@@ -134,7 +146,10 @@ export const MEALS = [
       "Prepare the salad",
       "Add salmon cubes and dressing",
     ],
-    ["gluten-free", "vegitarian", "lactose-free"]
+    true,
+    true,
+    false,
+    true
   ),
 
   new Meal(
@@ -164,7 +179,10 @@ export const MEALS = [
       "Cool down again for at least 4 hours",
       "Serve with orange peel",
     ],
-    ["gluten-free", "vegitarian"]
+    true,
+    false,
+    false,
+    true
   ),
 
   new Meal(
@@ -190,7 +208,10 @@ export const MEALS = [
       "Heat a lightly oiled griddle or frying pan over medium high heat.",
       "Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.",
     ],
-    ["gluten-free", "vegitarian"]
+    true,
+    false,
+    false,
+    true
   ),
 
   new Meal(
@@ -218,7 +239,8 @@ export const MEALS = [
       "Add coconut milk",
       "Serve with rice",
     ],
-    ["gluten-free", "lactose-free"]
+    true,
+    true
   ),
 
   new Meal(
@@ -262,7 +284,10 @@ export const MEALS = [
       "Stop mixing after the egg white disappears. Divide mixture between 2 prepared ramekins. Place ramekins on prepared baking sheet.",
       "Bake in preheated oven until scuffles are puffed and have risen above the top of the rims, 12 to 15 minutes.",
     ],
-    ["gluten-free", "vegitarian"]
+    true,
+    false,
+    false,
+    true
   ),
   new Meal(
     "m10",
@@ -288,6 +313,9 @@ export const MEALS = [
       "Mix with asparagus, salad and dressing",
       "Serve with Baguette",
     ],
-    ["gluten-free", "vegan", "vegitarian", "lactose-free"]
+    true,
+    true,
+    true,
+    true
   ),
 ];

@@ -1,16 +1,30 @@
+import { useCallback, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { useSelector, useDispatch } from "react-redux";
 
-import { MEALS } from "../data/dummy-meals";
 import HeaderButton from "../components/HeaderButton";
+import { toggleFavorite } from "../store/actions/meals";
 
 const getMeal = (navigation) => {
   const mealId = navigation.getParam("id");
-  return MEALS.find((m) => m.id === mealId);
+  const meals = useSelector((state) => state.meals.meals);
+  return meals.find((m) => m.id === mealId);
 };
 
 const MealDetailScreen = ({ navigation }) => {
+  const mealId = navigation.getParam("id");
   const meal = getMeal(navigation);
+
+  const dispatch = useDispatch();
+
+  const toggleFavoriteHandler = useCallback(() => {
+    dispatch(toggleFavorite(mealId));
+  }, [dispatch, mealId]);
+
+  useEffect(() => {
+    navigation.setParams({ toggleFav: toggleFavoriteHandler });
+  }, [toggleFavoriteHandler]);
 
   return (
     <View style={styles.screen}>
@@ -30,15 +44,12 @@ const MealDetailScreen = ({ navigation }) => {
 
 MealDetailScreen.navigationOptions = (navigationData) => {
   const meal = getMeal(navigationData.navigation);
+  const toggleFavorite = navigationData.navigation.getParam("toggleFav");
   return {
     headerTitle: meal.title,
     headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Favorite"
-          iconName="ios-star"
-          onPress={() => console.log("item favorited")}
-        />
+        <Item title="Favorite" iconName="ios-star" onPress={toggleFavorite} />
       </HeaderButtons>
     ),
   };
