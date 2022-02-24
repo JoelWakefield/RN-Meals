@@ -7,7 +7,7 @@ export default class Meal {
     complexity,
     imageUrl,
     duration,
-    ingredients,
+    requirements,
     steps,
     isGlutenFree,
     isLactoseFree,
@@ -21,7 +21,7 @@ export default class Meal {
     this.complexity = complexity;
     this.imageUrl = imageUrl;
     this.duration = duration;
-    this.ingredients = ingredients;
+    this.requirements = requirements;
     this.steps = steps;
     this.isGlutenFree = isGlutenFree;
     this.isLactoseFree = isLactoseFree;

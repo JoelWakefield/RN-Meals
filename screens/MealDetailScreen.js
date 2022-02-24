@@ -32,9 +32,15 @@ const MealDetailScreen = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <View style={styles.itemsContainer}>
-        {meal.ingredients.map((i) => (
-          <View style={styles.item}>
-            <Text key={i}>{i}</Text>
+        {meal.requirements.map((i) => (
+          <View style={styles.item} key={i.ingredient}>
+            <Text>
+              {i.measurement !== undefined
+                ? `${i.amount} ${i.measurement}${i.amount > 1 ? "s" : ""} of ${
+                    i.ingredient
+                  }`
+                : `${i.ingredient}`}
+            </Text>
           </View>
         ))}
       </View>
@@ -78,7 +84,12 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   item: {
+    width: "100%",
+    padding: 10,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
     borderWidth: 1,
   },
 });
+
 export default MealDetailScreen;
