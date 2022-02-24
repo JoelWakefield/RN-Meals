@@ -7,12 +7,11 @@ import { Provider } from "react-redux";
 
 import MealsNavigator from "./navigation/MealsNavigator";
 import mealsReducer from "./store/reducers/meals";
-import { RotationGestureHandler } from "react-native-gesture-handler";
 
 enableScreens();
 
 const rootReducer = combineReducers({
-  meals: mealsReducer,
+  mealsReducer,
 });
 
 const store = createStore(rootReducer);
